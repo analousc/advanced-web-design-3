@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Bedroom</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #333;
+    }
+    .bedroom {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #000;
+      transition: background-color 0.5s ease;
+    }
+    .light-on {
+      background-color: #f5f5dc;
+    }
+    .lamp {
+      position: absolute;
+      width: 100px;
+      height: 200px;
+      background-color: #444;
+      top: 50%;
+      transform: translateY(-50%);
+      border-radius: 10px;
+    }
+    .lamp-light {
+      position: absolute;
+      top: 0;
+      width: 100px;
+      height: 200px;
+      background-color: #ffd700;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      border-radius: 10px;
+    }
+    .light-on .lamp-light {
+      opacity: 1;
+    }
+    .toggle-button {
+      position: absolute;
+      bottom: 50px;
+      padding: 10px 20px;
+      font-size: 18px;
+      background-color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="bedroom" id="bedroom">
+    <div class="lamp">
+      <div class="lamp-light"></div>
+    </div>
+    <button class="toggle-button" onclick="toggleLight()">Toggle Light</button>
+  </div>
+
+  <script>
+    
+  document.addEventListener('click', function() {
+   
+    window.location.href = 'interface5.html'; 
+  });
+    function toggleLight() {
+      const bedroom = document.getElementById('bedroom');
+      bedroom.classList.toggle('light-on');
+    }
+  </script>
+</body>
+</html>

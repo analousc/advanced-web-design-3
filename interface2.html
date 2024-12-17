@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OCD Interface</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: repeat(10, 1fr);
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2vw;
+      font-weight: bold;
+      opacity: 0.1;
+      transition: opacity 0.3s;
+    }
+
+    .text:hover {
+      opacity: 1;
+    }
+    .text {
+      position: absolute;
+      font-size: 24px;
+      white-space: nowrap;
+      opacity: 0;
+      animation: float 10s infinite linear;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translate(-50vw, -50vh);
+        opacity: 0;
+      }
+      10% {
+        opacity: 1;
+      }
+      90% {
+        opacity: 1;
+      }
+      100% {
+        transform: translate(50vw, 50vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+   
+  </div>
+
+  <script>
+  
+  document.addEventListener('click', function() {
+   
+    window.location.href = 'interface3.html'; 
+  });
+    const grid = document.querySelector('.grid');
+    
+   
+    for (let i = 0; i < 100; i++) {
+      const textElement = document.createElement('div');
+      textElement.className = 'text';
+      textElement.textContent = 'OCD';
+      grid.appendChild(textElement);
+      const phrases = ["you are nothing"];
+    const colors = ["white", "gray", "lightgray"];
+
+    function createFloatingText() {
+      const text = document.createElement("div");
+      text.classList.add("text");
+      text.textContent = phrases[Math.floor(Math.random() * phrases.length)];
+      text.style.left = `${Math.random() * 100}vw`;
+      text.style.top = `${Math.random() * 100}vh`;
+      text.style.color = colors[Math.floor(Math.random() * colors.length)];
+      text.style.fontSize = `${Math.random() * 20 + 20}px`;
+      document.body.appendChild(text);
+
+      setTimeout(() => {
+        text.remove();
+      }, 10000); 
+    }
+
+    setInterval(createFloatingText, 500);
+
+    }
+  </script>
+</body>
+</html>

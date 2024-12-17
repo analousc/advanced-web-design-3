@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+  <script src="/script.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <title>Collecting Data + Retrieving Data</title>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OCD Interface</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      margin: 0;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      grid-template-rows: repeat(10, 1fr);
+      width: 100vw;
+      height: 100vh;
+    }
+
+    .text {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2vw;
+      font-weight: bold;
+      opacity: 0.1;
+      transition: opacity 0.3s;
+    }
+
+    .text:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body> 
+  <h2 class="text-primary">Tell me an insecurity or fear</h2>
+
+		<form class="container" id="contactForm">
+			<div class="card">
+				<div class="card-body">
+					<div class="form-group">
+						<label for="exampleFormControlInput1">
+							thought: 
+						</label>
+						<input type="text" class="form-control" id="thought" placeholder="I'm anxious">
+					</div>
+				</div>
+				<button type="submit" class="btn btn-primary">
+					Submit!
+				</button>
+			</div>
+		</form>
+		<div id="dataDisplay" class="grid"></div>
+		
+  <div class="grid">
+   
+  </div>
+
+  <script>
+
+document.addEventListener('click', function(event) {
+    
+    if (!event.target.closest('#contactForm')) { 
+      window.location.href = 'interface2.html';
+    }
+  });
+
+    const grid = document.querySelector('.grid');
+    
+   
+    for (let i = 0; i < 100; i++) {
+      const textElement = document.createElement('div');
+      textElement.className = 'text';
+      textElement.textContent = 'OCD';
+      grid.appendChild(textElement);
+    }
+  </script>
+</body>
+</html>

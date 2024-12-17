@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feed me</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: black;
+      overflow: hidden;
+    }
+
+    .flash-text {
+      font-size: 10px;
+      color: red;
+      font-family: Arial, sans-serif;
+      opacity: 0;
+      transition: opacity 0.5s, font-size 0.5s;
+    }
+  </style>
+</head>
+<body>
+  <div class="flash-text">feed me</div>
+
+  <script>
+     
+  document.addEventListener('click', function() {
+    
+    window.location.href = 'interface4.html'; 
+  });
+    const flashText = document.querySelector('.flash-text');
+    let fontSize = 10; 
+    let growing = true;
+
+    function flashAndGrow() {
+      
+      flashText.style.opacity = flashText.style.opacity === '1' ? '0' : '1';
+
+      
+      if (flashText.style.opacity === '1') {
+        fontSize += 5; 
+        flashText.style.fontSize = `${fontSize}px`;
+      }
+
+      if (fontSize >= 100) {
+        fontSize = 10; 
+      }
+    }
+
+    
+    setInterval(flashAndGrow, 1000);
+  </script>
+</body>
+</html>
+
